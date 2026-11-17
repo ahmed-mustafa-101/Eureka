@@ -21,7 +21,7 @@ class AuthHeader extends StatelessWidget {
     return Column(
       children: [
         Image.asset(
-          'assets/images/Frame.png',
+          'assets/images/logo.png',
           width: 90.w,
           fit: BoxFit.contain,
         ),
