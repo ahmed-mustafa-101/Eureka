@@ -335,7 +335,7 @@ class _AppTextFieldState extends State<AppTextField> {
 
   Widget? _buildSuffixIcon() {
     if (_isPassword) {
-      return IconButton(
+      final eyeButton = IconButton(
         onPressed: _togglePassword,
         splashRadius: 20,
         icon: Icon(
@@ -343,6 +343,18 @@ class _AppTextFieldState extends State<AppTextField> {
           color: AppColors.textSecondary,
         ),
       );
+
+      if (widget.suffixIcon != null) {
+        return Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            widget.suffixIcon!,
+            eyeButton,
+          ],
+        );
+      }
+
+      return eyeButton;
     }
 
     return widget.suffixIcon;
