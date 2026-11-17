@@ -1,6 +1,7 @@
 import 'package:eureka/core/design_system/theme/app_theme.dart';
 import 'package:eureka/core/routing/router_generation_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 
@@ -25,7 +26,9 @@ class EurekaApp extends StatelessWidget {
         locale: const Locale('ar'),
         supportedLocales: const [Locale('ar')],
         localizationsDelegates: const [
-    
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
         ],
       ),
       builder: (context, child) {
