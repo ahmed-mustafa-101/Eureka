@@ -9,7 +9,9 @@ class AppRoutes {
   static const String teacherHomeScreen = '/teacher-home';
   static const String mainLayoutScreen = '/main-layout';
   static const String teacherGroupDetailScreen = '/teacher-group-detail';
+  static const String teacherAddGroupScreen = '/teacher-add-group';
   static const String teacherStudentDetailScreen = '/teacher-student-detail';
+  static const String teacherAddStudentScreen = '/teacher-add-student';
   static const String teacherEditStudentScreen = '/teacher-edit-student';
   static const String teacherQrCodeScreen = '/teacher-qr-code';
   static const String teacherSubjectsListScreen = '/teacher-subjects';

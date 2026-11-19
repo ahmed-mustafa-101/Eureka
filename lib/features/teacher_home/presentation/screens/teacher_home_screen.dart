@@ -1,5 +1,6 @@
 import 'package:eureka/core/design_system/colors/app_colors.dart';
 import 'package:eureka/core/design_system/spacing/app_spacing.dart';
+import 'package:eureka/core/design_system/widgets/feedback/app_snack_bar.dart';
 import 'package:eureka/core/routing/app_routes.dart';
 import 'package:eureka/features/teacher_home/presentation/widgets/teacher_exams_section.dart';
 import 'package:eureka/features/teacher_home/presentation/widgets/teacher_groups_section.dart';
@@ -22,8 +23,16 @@ class TeacherHomeScreen extends StatelessWidget {
     // TODO: Open add exam flow
   }
 
-  void _onAddStudentTap() {
-    // TODO: Open add student flow
+  Future<void> _onAddStudentTap(BuildContext context) async {
+    final student = await context.push<Map<String, dynamic>>(
+      AppRoutes.teacherAddStudentScreen,
+    );
+    if (student != null && context.mounted) {
+      AppSnackBar.success(
+        context,
+        message: 'تم إضافة الطالب ${student['name']} بنجاح',
+      );
+    }
   }
 
   @override
@@ -54,7 +63,7 @@ class TeacherHomeScreen extends StatelessWidget {
               // ── Quick Actions (Add Exam / Add Student) ───────────────
               TeacherQuickActions(
                 onAddExamTap: _onAddExamTap,
-                onAddStudentTap: _onAddStudentTap,
+                onAddStudentTap: () => _onAddStudentTap(context),
               ),
 
               Gap(AppSpacing.space24.h),

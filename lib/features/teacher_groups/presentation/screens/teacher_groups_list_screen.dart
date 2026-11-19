@@ -93,6 +93,34 @@ class _TeacherGroupsListScreenState extends State<TeacherGroupsListScreen> {
     );
   }
 
+  Future<void> _addGroup() async {
+    final newGroup = await context.push<Map<String, dynamic>>(
+      AppRoutes.teacherAddGroupScreen,
+    );
+    if (newGroup == null || !mounted) return;
+
+    final subject = newGroup['subject'] as String;
+    final icon = switch (subject) {
+      'فيزياء' => Icons.science_outlined,
+      'كيمياء' => Icons.biotech_outlined,
+      _ => Icons.menu_book_outlined,
+    };
+
+    setState(() {
+      _searchController.clear();
+      _searchQuery = '';
+      _groupsData.insert(0, {
+        ...newGroup,
+        'studentsCount': 0,
+        'lastSession': 'لم تبدأ بعد',
+        'weeksCount': '0 اسبوع',
+        'isPaid': false,
+        'gradientColors': const [AppColors.success, Color(0xFF43A047)],
+        'icon': icon,
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final filteredList = _filteredGroups;
@@ -253,10 +281,7 @@ class _TeacherGroupsListScreenState extends State<TeacherGroupsListScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text('إضافة مجموعة')));
-        },
+        onPressed: _addGroup,
         backgroundColor: AppColors.success,
         foregroundColor: AppColors.white,
         shape: const CircleBorder(),

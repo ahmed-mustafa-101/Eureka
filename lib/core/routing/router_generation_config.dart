@@ -9,6 +9,8 @@ import 'package:eureka/features/onboarding/presentation/screens/onboarding_scree
 import 'package:eureka/features/splach/presentation/screens/splash_screen.dart';
 import 'package:eureka/features/teacher_home/presentation/screens/teacher_home_screen.dart';
 import 'package:eureka/features/teacher_groups/presentation/screens/teacher_group_detail_screen.dart';
+import 'package:eureka/features/teacher_groups/presentation/screens/teacher_add_group_screen.dart';
+import 'package:eureka/features/teacher_students/presentation/screens/teacher_add_student_screen.dart';
 import 'package:eureka/features/teacher_groups/presentation/screens/teacher_student_detail_screen.dart';
 import 'package:eureka/features/teacher_groups/presentation/screens/teacher_edit_student_screen.dart';
 import 'package:eureka/features/teacher_groups/presentation/screens/teacher_qr_code_screen.dart';
@@ -77,6 +79,10 @@ class RouterGenerationConfig {
         builder: (context, state) => const MainLayoutScreen(),
       ),
       GoRoute(
+        path: AppRoutes.teacherAddGroupScreen,
+        builder: (context, state) => const TeacherAddGroupScreen(),
+      ),
+      GoRoute(
         path: AppRoutes.teacherGroupDetailScreen,
         builder: (context, state) {
           final groupName = (state.extra is String)
@@ -93,6 +99,10 @@ class RouterGenerationConfig {
               : 'احمد السيد';
           return TeacherStudentDetailScreen(studentName: studentName);
         },
+      ),
+      GoRoute(
+        path: AppRoutes.teacherAddStudentScreen,
+        builder: (context, state) => const TeacherAddStudentScreen(),
       ),
       GoRoute(
         path: AppRoutes.teacherEditStudentScreen,
