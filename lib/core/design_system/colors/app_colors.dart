@@ -100,7 +100,7 @@ final class AppColors {
   // 8. Success - Forest Green (#4F7A5A)
   // Strong match, completed roadmap steps
   // ===========================================================================
-  static const Color success = Color(0xFF4F7A5A);
+  static const Color success = Color(0xFF089B4A);
   static const Color successContainer = Color(0xFFEAF2ED);
   static const Color onSuccess = Color(0xFFFFFFFF);
   static const Color onSuccessContainer = Color(0xFF1B3322);

@@ -21,7 +21,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   void _onLoginSuccess(BuildContext context) {
-    // TODO: navigate to home screen
+    context.go(AppRoutes.mainLayoutScreen);
   }
 
   @override
