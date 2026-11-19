@@ -17,4 +17,19 @@ class AppRoutes {
   static const String teacherUnitDetailScreen = '/teacher-unit-detail';
   static const String teacherLessonDetailScreen = '/teacher-lesson-detail';
   static const String teacherVideoDetailScreen = '/teacher-video-detail';
+  static const String teacherTasksHomeScreen = '/teacher-tasks';
+  static const String teacherCreateTaskBasicInfoScreen =
+      '/teacher-create-task-basic-info';
+  static const String teacherSelectTaskTypeScreen = '/teacher-select-task-type';
+  static const String teacherAddQuestionsScreen = '/teacher-add-questions';
+  static const String teacherSetTaskScheduleScreen =
+      '/teacher-set-task-schedule';
+  static const String teacherPublishTaskScreen = '/teacher-publish-task';
+  static const String teacherTaskDetailSubmissionsScreen =
+      '/teacher-task-detail-submissions';
+  static const String teacherNotificationsScreen = '/teacher-notifications';
+  static const String teacherNotificationDetailsScreen =
+      '/teacher-notification-details';
+  static const String teacherNotificationFormScreen =
+      '/teacher-notification-form';
 }

@@ -3,6 +3,7 @@ import 'package:eureka/features/main_layout/presentation/widgets/custom_bottom_n
 import 'package:eureka/features/teacher_groups/presentation/screens/teacher_groups_list_screen.dart';
 import 'package:eureka/features/teacher_home/presentation/screens/teacher_home_screen.dart';
 import 'package:eureka/features/teacher_subjects/presentation/screens/teacher_subjects_list_screen.dart';
+import 'package:eureka/features/teacher_tasks/presentation/screens/teacher_tasks_home_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainLayoutScreen extends StatefulWidget {
@@ -19,10 +20,7 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
     TeacherHomeScreen(),
     TeacherGroupsListScreen(),
     TeacherSubjectsListScreen(),
-    Scaffold(
-      backgroundColor: AppColors.white,
-      body: Center(child: Text('المهام')),
-    ),
+    TeacherTasksHomeScreen(),
     Scaffold(
       backgroundColor: AppColors.white,
       body: Center(child: Text('الماليه')),
@@ -39,10 +37,7 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
-      body: IndexedStack(
-        index: _currentIndex,
-        children: _screens,
-      ),
+      body: IndexedStack(index: _currentIndex, children: _screens),
       bottomNavigationBar: CustomBottomNavBar(
         currentIndex: _currentIndex,
         onTap: _onNavTap,

@@ -1,5 +1,6 @@
 import 'package:eureka/core/design_system/colors/app_colors.dart';
 import 'package:eureka/core/design_system/spacing/app_spacing.dart';
+import 'package:eureka/core/routing/app_routes.dart';
 import 'package:eureka/features/teacher_home/presentation/widgets/teacher_exams_section.dart';
 import 'package:eureka/features/teacher_home/presentation/widgets/teacher_groups_section.dart';
 import 'package:eureka/features/teacher_home/presentation/widgets/teacher_home_header.dart';
@@ -8,12 +9,13 @@ import 'package:eureka/features/teacher_home/presentation/widgets/teacher_stats_
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class TeacherHomeScreen extends StatelessWidget {
   const TeacherHomeScreen({super.key});
 
-  void _onNotificationTap() {
-    // TODO: Navigate to notifications
+  void _onNotificationTap(BuildContext context) {
+    context.push(AppRoutes.teacherNotificationsScreen);
   }
 
   void _onAddExamTap() {
@@ -39,7 +41,7 @@ class TeacherHomeScreen extends StatelessWidget {
             children: [
               // ── Top Header ──────────────────────────────────────────
               TeacherHomeHeader(
-                onNotificationTap: _onNotificationTap,
+                onNotificationTap: () => _onNotificationTap(context),
               ),
 
               Gap(AppSpacing.space20.h),

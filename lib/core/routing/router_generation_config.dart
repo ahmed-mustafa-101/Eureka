@@ -17,6 +17,16 @@ import 'package:eureka/features/teacher_subjects/presentation/screens/teacher_un
 import 'package:eureka/features/teacher_subjects/presentation/screens/teacher_unit_detail_screen.dart';
 import 'package:eureka/features/teacher_subjects/presentation/screens/teacher_lesson_detail_screen.dart';
 import 'package:eureka/features/teacher_subjects/presentation/screens/teacher_video_detail_screen.dart';
+import 'package:eureka/features/teacher_tasks/presentation/screens/teacher_add_questions_screen.dart';
+import 'package:eureka/features/teacher_tasks/presentation/screens/teacher_create_task_basic_info_screen.dart';
+import 'package:eureka/features/teacher_tasks/presentation/screens/teacher_publish_task_screen.dart';
+import 'package:eureka/features/teacher_tasks/presentation/screens/teacher_select_task_type_screen.dart';
+import 'package:eureka/features/teacher_tasks/presentation/screens/teacher_set_task_schedule_screen.dart';
+import 'package:eureka/features/teacher_tasks/presentation/screens/teacher_task_detail_submissions_screen.dart';
+import 'package:eureka/features/teacher_tasks/presentation/screens/teacher_tasks_home_screen.dart';
+import 'package:eureka/features/teacher_notifications/presentation/screens/teacher_notification_details_screen.dart';
+import 'package:eureka/features/teacher_notifications/presentation/screens/teacher_notification_form_screen.dart';
+import 'package:eureka/features/teacher_notifications/presentation/screens/teacher_notifications_screen.dart';
 import 'package:go_router/go_router.dart';
 
 class RouterGenerationConfig {
@@ -113,8 +123,9 @@ class RouterGenerationConfig {
       GoRoute(
         path: AppRoutes.teacherUnitDetailScreen,
         builder: (context, state) {
-          final unitName =
-              (state.extra is String) ? state.extra as String : 'الجبر';
+          final unitName = (state.extra is String)
+              ? state.extra as String
+              : 'الجبر';
           return TeacherUnitDetailScreen(unitName: unitName);
         },
       ),
@@ -135,6 +146,77 @@ class RouterGenerationConfig {
               : 'شرح المعادلات للجزء الاول';
           return TeacherVideoDetailScreen(videoTitle: videoTitle);
         },
+      ),
+      GoRoute(
+        path: AppRoutes.teacherTasksHomeScreen,
+        builder: (context, state) => const TeacherTasksHomeScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.teacherCreateTaskBasicInfoScreen,
+        builder: (context, state) {
+          final taskCategory = (state.extra is String)
+              ? state.extra as String
+              : 'واجب جديد';
+          return TeacherCreateTaskBasicInfoScreen(taskCategory: taskCategory);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.teacherSelectTaskTypeScreen,
+        builder: (context, state) {
+          final taskName = (state.extra is String)
+              ? state.extra as String
+              : 'واجب جديد';
+          return TeacherSelectTaskTypeScreen(taskName: taskName);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.teacherAddQuestionsScreen,
+        builder: (context, state) {
+          final questionType = (state.extra is String)
+              ? state.extra as String
+              : 'اختياري';
+          return TeacherAddQuestionsScreen(questionType: questionType);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.teacherSetTaskScheduleScreen,
+        builder: (context, state) => const TeacherSetTaskScheduleScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.teacherPublishTaskScreen,
+        builder: (context, state) {
+          final dueDate = (state.extra is String)
+              ? state.extra as String
+              : '25 مايو 2024';
+          return TeacherPublishTaskScreen(dueDate: dueDate);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.teacherTaskDetailSubmissionsScreen,
+        builder: (context, state) {
+          final taskTitle = (state.extra is String)
+              ? state.extra as String
+              : 'واجب الفيزياء الأول';
+          return TeacherTaskDetailSubmissionsScreen(taskTitle: taskTitle);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.teacherNotificationsScreen,
+        builder: (context, state) => const TeacherNotificationsScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.teacherNotificationDetailsScreen,
+        builder: (context, state) => TeacherNotificationDetailsScreen(
+          notification: state.extra! as Map<String, dynamic>,
+        ),
+      ),
+      GoRoute(
+        path: AppRoutes.teacherNotificationFormScreen,
+        builder: (context, state) => TeacherNotificationFormScreen(
+          notification: state.extra is Map<String, dynamic>
+              ? state.extra as Map<String, dynamic>
+              : null,
+        ),
       ),
     ],
   );
